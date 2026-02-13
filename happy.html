@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Valentine’s Day ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    font-family: 'Great Vibes', cursive;
+    color: white;
+}
+
+/* Heart Container */
+.message-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding:50px 80px;
+    border-radius:30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    line-height:1.8;
+    font-size:36px;
+}
+
+/* Animated Heart Effect */
+@keyframes floatHearts {
+    0% { transform: translateY(0) scale(1); opacity:1; }
+    50% { transform: translateY(-20px) scale(1.2); opacity:0.7; }
+    100% { transform: translateY(-50px) scale(0.8); opacity:0; }
+}
+
+.heart {
+    position:absolute;
+    font-size:40px;
+    animation: floatHearts 2s linear infinite;
+}
+
+/* Your Name at Bottom Right */
+.signature {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-family: 'Great Vibes', cursive;
+    font-size:28px;
+    color: white;
+    opacity:0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="message-box">
+    ❤️ Happy Valentine’s Day! ❤️<br><br>
+    I love you so much… you are my everything.
+</div>
+
+<div class="signature">Your Soumya</div> <!-- Added signature -->
+
+<script>
+// Function to create floating hearts
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "💖";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.animationDuration = (Math.random() * 2 + 2) + "s"; // 2-4s
+    heart.style.fontSize = (20 + Math.random() * 40) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    }, 4000);
+}
+
+// Create hearts repeatedly
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
